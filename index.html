@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Amor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap');
+        
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            background-color: #0d1b2a; /* Azul noite */
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+            padding-top: 40px; /* Espaço para evitar corte da imagem */
+        }
+
+        img {
+            width: 80%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.1);
+            transform: rotate(-3deg);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin: 5px 0;
+            font-weight: 400;
+        }
+
+        #timer {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .separator {
+            width: 60%;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 10px 0;
+        }
+
+        .romantic-message {
+            font-size: 24px;
+            font-family: 'Great Vibes', cursive;
+            margin-top: 40px;
+            font-weight: 300;
+            max-width: 80%;
+            padding: 0 10px;
+        }
+
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 18px;
+            opacity: 0.8;
+            animation: fall 3s linear forwards;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+        }
+
+        /* Responsividade para iPhone 12 e outros dispositivos móveis */
+        @media screen and (max-width: 375px) {
+            img {
+                width: 85%;
+                max-width: 250px;
+            }
+            .romantic-message {
+                font-size: 20px;
+                padding: 0 5px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            #timer {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="picture/vida.png" alt="Nós dois">
+    <h2>Since:</h2>
+    <div id="timer"></div>
+    <div class="separator"></div>
+    <p class="romantic-message">Eu te amo infinitamente, você é tudo para mim!</p>
+    <p class="romantic-message">Thais, de origem grega, significa "a admirada" ou "a bela".<br>
+       Está associada à palavra "thaos", que significa "maravilhoso" ou "admirável".<br>
+       Tudo isso faz total sentido quando penso em você e fico admirado com a sua beleza.<br>
+       Você ilumina todos os meus dias.<br>
+       Obrigado por existir!
+    </p>
+    
+    <!-- Player do Spotify -->
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1jJci4qxiYcOHhQR247rEU?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+   
+   <script>
+        function updateTimer() {
+            const startDate = new Date(2024, 10, 27);
+            const now = new Date();
+            let diff = now - startDate;
+            
+            let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            diff -= years * (1000 * 60 * 60 * 24 * 365);
+            let months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+            diff -= months * (1000 * 60 * 60 * 24 * 30);
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            diff -= days * (1000 * 60 * 60 * 24);
+            let hours = Math.floor(diff / (1000 * 60 * 60));
+            let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById("timer").innerHTML = 
+                `${years} anos, ${months} meses, ${days} dias<br>${hours}h ${minutes}m ${seconds}s`;
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+        
+        window.addEventListener("scroll", function() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+                createHearts();
+            }
+        });
+        
+        function createHearts() {
+            for (let i = 0; i < 10; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * window.innerWidth + "px";
+                heart.style.top = window.scrollY - 10 + "px"; // Corações irão descer com o scroll
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+    </script>
+</body>
+</html>
