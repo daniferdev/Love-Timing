@@ -60,6 +60,7 @@
             font-weight: 300;
             max-width: 80%;
             padding: 0 10px;
+            white-space: pre-line; /* Permite quebras de linha no texto */
         }
 
         .heart {
@@ -75,21 +76,21 @@
             100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
         }
 
-        /* Responsividade para iPhone 12 e outros dispositivos móveis */
+        /* Responsividade para dispositivos móveis */
         @media screen and (max-width: 375px) {
             img {
                 width: 85%;
                 max-width: 250px;
             }
-            .romantic-message {
-                font-size: 20px;
-                padding: 0 5px;
-            }
             h2 {
-                font-size: 20px;
+                font-size: 18px; /* Tamanho reduzido em dispositivos móveis */
             }
             #timer {
-                font-size: 18px;
+                font-size: 16px; /* Tamanho reduzido em dispositivos móveis */
+            }
+            .romantic-message {
+                font-size: 18px; /* Tamanho reduzido em dispositivos móveis */
+                padding: 0 5px;
             }
         }
     </style>
@@ -99,12 +100,15 @@
     <h2>Since:</h2>
     <div id="timer"></div>
     <div class="separator"></div>
-    <p class="romantic-message">Eu te amo infinitamente, você é tudo para mim!</p>
-    <p class="romantic-message">Thais, de origem grega, significa "a admirada" ou "a bela".<br>
-       Está associada à palavra "thaos", que significa "maravilhoso" ou "admirável".<br>
-       Tudo isso faz total sentido quando penso em você e fico admirado com a sua beleza.<br>
-       Você ilumina todos os meus dias.<br>
-       Obrigado por existir!
+    <p class="romantic-message">
+        Eu te amo infinitamente, você é tudo para mim!<br>
+        Thais, de origem grega,
+        significa "a admirada" ou "a bela"<br>
+        Está associada à palavra "thaos",
+        que significa "maravilhoso" ou "admirável".<br>
+        Tudo isso faz total sentido quando penso em você e fico admirado com a sua beleza<br>
+        Você ilumina todos os meus dias.
+        Obrigado por existir!
     </p>
     
     <!-- Player do Spotify -->
